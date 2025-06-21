@@ -1,16 +1,28 @@
-!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <h1>サンプルアプリ</h1>
-    </header>
-    {% block content %}
-    {% endblock %}
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>ここに投稿してね</h1>
+
+  <div class="bms_message">
+  {% for tweet in tweets %}
+    <p>DEBUG: {{ tweet.user_id }} / {{ current_user.id }}</p>
+
+    <div class="bms_{{ 'right' if tweet.user_id == current_user.id else 'left' }}">
+      <div class="bms_message_box">
+
+        <p>ファイル名: {{ tweet.user.icon_filename }}</p>
+        <p>URL: {{ url_for('static', filename='user_icons/' ~ (tweet.user.icon_filename or 'default.png')) }}</p>
+
+    {% set icon_file = tweet.user.icon_filename if tweet.user.icon_filename else 'default.png' %}
+    <img src="{{ url_for('static', filename='user_icons/' ~ icon_file) }}"
+         alt="アイコン" width="50" height="50" style="border-radius: 50%;">
+    
+    
+        <div class="bms_message_content">
+          {{ tweet.body }}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

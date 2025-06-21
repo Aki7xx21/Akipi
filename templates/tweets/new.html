@@ -1,4 +1,7 @@
 {% extends "application.html" %}
+
+{% block body_class %}new-bg{% endblock %}
+
 {% block content %}
     <h1>新規登録</h1>
     <form action="/tweets/new" method="POST">

@@ -1,0 +1,18 @@
+<!-- templates/profile.html -->
+{% extends "base.html" %}
+
+{% block body_class %}profile-bg{% endblock %}
+
+{% block content %}
+ <div class="profile-card">
+    <h2>{{ user.username }}のプロフィール</h2>
+
+    <p><strong>趣味：</strong> {{ user.hobby or '未登録' }}</p>
+    <p><strong>MBTI：</strong> {{ user.mbti or '未登録' }}</p>
+    <p><strong>ひとこと：</strong> {{ user.message or '未登録' }}</p>
+
+    {% if current_user.id == user.id %}
+        <a href="{{ url_for('edit_profile') }}">プロフィール編集</a>
+    {% endif %}
+ </div>
+{% endblock %}

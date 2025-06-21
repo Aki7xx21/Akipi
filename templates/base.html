@@ -1,0 +1,50 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="ja">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}タイトル{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+    
+</head>
+<body class="{% block body_class %}{% endblock %}">
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- 例: base.html の </body> の直前に追加 -->
+<div class="heart-area">
+  <ul class="hearts"></ul>
+</div>
+
+<script>
+  const icons = ["💖", "🌸", "⭐", "🎀"];
+  const container = document.querySelector(".hearts");
+
+  function createIcon() {
+    const icon = document.createElement("li");
+    icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+    icon.style.left = Math.random() * 100 + "vw";
+    icon.style.fontSize = (Math.random() * 10 + 12) + "px"; // 控えめサイズ
+    icon.style.animationDuration = (Math.random() * 2 + 4) + "s";
+    icon.style.opacity = 0.5;
+
+    container.appendChild(icon);
+
+    setTimeout(() => {
+      icon.remove();
+    }, 6000);
+  }
+
+  setInterval(createIcon, 800); // 控えめな出現頻度
+</script>
+
+</body>
+</html>
+

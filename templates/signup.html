@@ -1,11 +1,16 @@
-{% extends 'application.html' %}
+
+{% extends "base.html" %}
+
 {% block content %}
-<h1>ユーザ登録</h1>
-<form method="POST">
-    <label for="">ユーザ名</label>
-    <input type="text" name="username">
-    <label for="">パスワード</label>
-    <input type="password" name="password">
-    <input type="submit" value="新規登録">
-</form>
+    <h1>ユーザー登録</h1>
+    <form method="POST">
+        <label>ユーザー名：</label>
+        <input type="text" name="username" required>
+        <br><br>
+        <label>パスワード：</label>
+        <input type="password" name="password" required>
+        <br><br>
+        <button type="submit">登録する</button>
+    </form>
+    <p><a href="/login">ログイン画面に戻る</a></p>
 {% endblock %}

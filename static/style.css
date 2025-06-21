@@ -1,0 +1,478 @@
+body,
+body.login,
+body.comment {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f6c5d5;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(85, 85, 85);
+
+}
+
+.tweet {
+    border-bottom: 1px solid #0e0d0d;
+    padding: 15px 0;
+    position: relative;
+}
+
+.tweet:last-child {
+    border-bottom: none;
+}
+
+h1 {
+    text-align: center;
+    color: #030303;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555555;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #565254;
+  border-radius: 8px;
+  background-color: #ffffff;
+  margin-bottom: 16px;
+  font-size: 14px;
+
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #eb145f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #c4124c;
+}
+
+
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    form {
+        width: 100%;
+    }
+    input[type="submit"] {
+        font-size: 14px;
+    }
+}
+
+.Likes{
+   position: relative; }
+ 
+.LikesInline {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.Likes-Icon {
+  display: inline-block;
+  vertical-align: middle;
+  background: url("/static/web_heart_animation.png");
+  background-position: left;
+  background-size: 2900%;
+  background-repeat: no-repeat;
+  width: 24px;   /* 💡 画像サイズを小さく */
+  height: 24px;
+  cursor: pointer;
+}
+
+.HeartAnimation {
+  background-position: right;
+  animation-name: heartBlast;
+  animation-duration: 0.8s;
+  animation-timing-function: steps(28);
+  animation-iteration-count: 1;
+}
+
+ @keyframes heartBlast {
+   0% {
+     background-position: left;
+   }
+   100% {
+     background-position: right;
+   }
+ }
+
+/* ✅ ナビゲーションバー 統合・整理済み */
+.nav-bar {
+  background-color: #f8dce0; /* やや濃いめピンク */
+  padding: 14px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-bar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar li a {
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+  position: relative;
+  padding: 10px 20px;
+  background-color:white;
+  border-radius: 20px;
+  border: 1px solid #f8b2c1;
+  transition: all 0.3s ease;
+}
+
+.nav-bar li a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: rgb(138, 133, 133);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-bar li a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-bar li a:hover {
+  color: rgb(138, 133, 133);
+}
+
+.about-box {
+  background-color: #fff0f5; /* ふんわりピンク */
+  padding: 40px;
+  margin: 50px auto;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(249, 151, 182, 0.3);
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+}
+
+.about-box ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.about-box li {
+  margin: 10px 0;
+  padding-left: 1em;
+  position: relative;
+  color: #2f2e2e;
+}
+
+.about-box li::before {
+  content: "♡";
+  position: absolute;
+  left: 0;
+  color: #f48fb1;
+}
+
+.about-box h2, .about-box h3 {
+  color: #d63384;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f8b2c1;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.login-box {
+  background-color: #fffafc;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(243, 176, 202, 0.4);
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+.profile-card {
+  background-color: #fff0f5;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(240, 150, 180, 0.3);
+  max-width: 600px;
+  margin: 50px auto;
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+}
+
+.profile-card h2 {
+  color: #c2185b;
+  border-bottom: 2px solid #f8b2c1;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+.profile-info p {
+  text-align: left;
+  margin: 8px 0;
+  color: #444;
+}
+
+.profile-card a {
+  color: #eb145f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.profile-card a:hover {
+  text-decoration: underline;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+}
+
+body {
+    background-color: #f6c5d5;
+     color: #333;
+     font-family: 'Noto Sans JP', sans-serif;
+     text-align: center;
+ }
+
+ .button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 18px;
+    background-color: #eb145f;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+       
+.button:hover {
+     background-color: #c4124c;
+}
+    
+.hero {
+    background-image: url("/static/img.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #000;  /* 白背景用。暗い画像なら white に */
+    padding: 20px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.button {
+    margin: 0 10px;
+}
+
+
+         *追加
+         */
+.bms_message_box{
+    margin-top: 20px;/*上下の吹き出しがひっつかない様に隙間を入れる*/
+    max-width: 100%;/*文字が長くなった時に吹き出しがタイムラインからはみ出さない様にする*/
+    font-size: 16px;
+}
+            /*
+            *追加
+            */
+.bms_message_content{
+    padding: 20px;/*文字や画像（コンテンツ）の外側に隙間を入れる*/
+}
+
+        /* メッセージ１（左側） */
+.bms_left {
+    float: left;/*吹き出しをbms_messagesに対して左寄せ*/
+    line-height: 1.3em;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px
+}
+            /*
+            *追加
+            */
+.bms_left .bms_message_box {
+    color: #333;/*テキストを黒にする*/
+    background: #f6cedc;
+    border: 2px solid #13178E;
+    border-radius: 30px 30px 30px 0px;/*左下だけ尖らせて吹き出し感を出す*/
+    margin-right: 50px;/*左側の発言だとわかる様に、吹き出し右側に隙間を入れる*/
+    display: inline-block;
+}
+
+        /* メッセージ２（右側） */
+.bms_right {
+    float: right;/*吹き出しをbms_messagesに対して右寄せ*/
+    line-height: 1.3em;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px
+}
+            /*
+            *追加
+            */
+.bms_right .bms_message_box {
+    color: #0f0f0f;/*テキストを白にする*/
+    background: #f6cedc;
+    border: 2px solid #dbdbdc;
+    border-radius: 30px 30px 0px 30px;/*右下だけ尖らせて吹き出し感を出す*/
+    margin-left: 50px;/*右側の発言だとわかる様に、吹き出し左側に隙間を入れる*/
+    display: inline-block;
+}
+
+.bms_message {
+    overflow: hidden;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+/* float解除：吹き出しが崩れないように */
+.bms_message::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+       
+body.tweet-bg {
+  background-image: url("/static/a.png");
+  background-size: cover;         /* 画面全体にフィット */
+  background-position: center;    /* 中央揃え */
+  background-repeat: no-repeat;
+}
+
+body.login-bg {
+  background-image: url("/static/b.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.about-bg {
+  background-image: url("/static/a.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.tweet-bg {
+  background-image: url("/static/b.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.edit-bg {
+  background-image: url("/static/b.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.profile-bg {
+  background-image: url("/static/a.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.edit_profile-bg {
+  background-image: url("/static/b.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.user-bg {
+  background-image: url("/static/a.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.new-bg {
+  background-image: url("/static/b.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.heart-area {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hearts li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  animation: fall 8s linear infinite;
+  bottom: -30px;
+  opacity: 0.5;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+  }
+}

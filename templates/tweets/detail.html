@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block body_class %}tweet-bg{% endblock %}
+
+
+{% block content %}
+<body class="comment"></body>
+
+<h2>{{ tweet.title }}</h2>
+<p>投稿者:{{ tweet.user.username }}</p>
+<p>{{ tweet.body }}</p>
+
+<hr>
+<h3>コメント一覧</h3>
+<ul>
+  {% for comment in tweet.comments %}
+    <li><strong>{{ comment.user.username }}:</strong> {{ comment.body }}</li>
+  {% else %}
+    <li>コメントはまだありません。</li>
+    {% endfor %}
+</ul>
+
+<form action="{{ url_for('post_comment', tweet_id=tweet.id) }}" method="post">
+  <textarea name="comment" required></textarea><br>
+  <button type="submit">コメント投稿</button>
+</form>
+
+<a href="/tweets">← 戻る</a>
+</body>
+{% endblock %}

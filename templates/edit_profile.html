@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block body_class %}edit_profile-bg{% endblock %}
+
+{% block content %}
+<h2>プロフィール編集</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    <label>趣味:</label><br>
+    <input type="text" name="hobby" value="{{ user.hobby }}"><br><br>
+
+    <label>MBTI:</label><br>
+    <input type="text" name="mbti" value="{{ user.mbti }}"><br><br>
+
+    <label>一言メッセージ:</label><br>
+    <input type="text" name="message" value="{{ user.message }}"><br><br>
+
+<!-- templates/edit_profile.html -->
+    <label>プロフィール画像:</label>
+    <input type="file" name="icon">
+
+    <button type="submit">保存</button>
+</form>
+  
+
+<a href="{{ url_for('user_profile', username=user.username) }}">← プロフィールに戻る</a>
+{% endblock %}
